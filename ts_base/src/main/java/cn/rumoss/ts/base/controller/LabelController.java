@@ -2,12 +2,15 @@ package cn.rumoss.ts.base.controller;
 
 import cn.rumoss.ts.base.pojo.Label;
 import cn.rumoss.ts.base.service.LabelService;
+import cn.rumoss.ts.entity.PageResult;
 import cn.rumoss.ts.entity.Result;
 import cn.rumoss.ts.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 标签web层
@@ -79,6 +82,25 @@ public class LabelController {
     public Result deleteById(@PathVariable String id) {
         labelService.delLabelById(id);
         return new Result(true, StatusCode.OK, "删除成功", null);
+    }
+
+    /**
+     * 带条件查询标签列表
+     * @param searchMap
+     * @return
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public Result findSearch(@RequestBody Map searchMap) {
+        List<Label> labelList = labelService.findSearch(searchMap);
+        return new Result(true,StatusCode.OK,"查询成功",labelList);
+    }
+
+    @RequestMapping(value = "/search/{page}/{size}", method = RequestMethod.POST)
+    public Result findSearch(@RequestBody Map searchMap,@PathVariable int page,@PathVariable int size) {
+        Page<Label> pageList = labelService.findSearch(searchMap, page, size);
+        PageResult pageResult = new PageResult<Label>(pageList.getTotalElements(), pageList.getContent());
+        //PageResult pageResult = new PageResult<Label>(Long.valueOf(pageList.getSize()), pageList.getContent());
+        return new Result(true, StatusCode.OK, "查询成功", pageResult);
     }
 
 }

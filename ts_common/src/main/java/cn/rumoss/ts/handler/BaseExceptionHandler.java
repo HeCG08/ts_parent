@@ -1,4 +1,4 @@
-package cn.rumoss.ts.base.handler;
+package cn.rumoss.ts.handler;
 
 import cn.rumoss.ts.entity.Result;
 import cn.rumoss.ts.entity.StatusCode;

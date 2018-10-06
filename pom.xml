@@ -10,6 +10,9 @@
     <modules>
         <module>ts_common</module>
         <module>ts_base</module>
+        <module>ts_recruit</module>
+        <module>ts_qa</module>
+        <module>ts_article</module>
     </modules>
     <packaging>pom</packaging>
 
