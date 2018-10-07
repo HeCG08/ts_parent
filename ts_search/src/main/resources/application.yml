@@ -1,0 +1,13 @@
+# 配置tomcat端口号
+server:
+  port: 9007
+# 配置注册中心中当前应用名称，名称不要有下划线_
+spring:
+  application:
+    name: ts-search
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+#  redis:
+#    host: 192.168.195.135
+#    port: 6379
