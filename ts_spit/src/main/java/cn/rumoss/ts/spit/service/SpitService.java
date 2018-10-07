@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,6 +50,26 @@ public class SpitService {
      */
     public void add(Spit spit){
         spit.set_id(idWorker.nextId()+"");// 主键
+        spit.setPublishtime(new Date());// 发布日期
+        spit.setVisits(0);// 浏览量
+        spit.setShare(0);// 分享数
+        spit.setThumbup(0);// 点赞数
+        spit.setComment(0);// 回复数
+        spit.setState("1");// 状态
+
+        String parentid = spit.getParentid();
+        //判断哪些是吐槽的评论
+        if (parentid != null && !"".equals(parentid)) {
+            //更新该评论对应的吐槽的回复数+1
+            //1.创建查询对象
+            Query query = new Query();
+            query.addCriteria(Criteria.where("_id").is(parentid));
+            //2.创建修改对象
+            Update update = new Update();
+            update.inc("comment", 1);
+            mongoTemplate.updateFirst(query, update, "spit");
+        }
+
         spitDao.save(spit);
     }
 
@@ -99,6 +120,30 @@ public class SpitService {
         //设置修改内容
         update.inc("thumbup", 1);
         //执行修改操作
+        mongoTemplate.updateFirst(query, update, "spit");
+    }
+
+    /**
+     * 增加访问量
+     * @param id
+     */
+    public void visit(String id) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("_id").is(id));
+        Update update = new Update();
+        update.inc("visits", 1);
+        mongoTemplate.updateFirst(query, update, "spit");
+    }
+
+    /**
+     * 增加分享
+     * @param id
+     */
+    public void share(String id) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("_id").is(id));
+        Update update = new Update();
+        update.inc("share", 1);
         mongoTemplate.updateFirst(query, update, "spit");
     }
 

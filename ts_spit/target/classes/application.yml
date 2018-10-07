@@ -1,0 +1,15 @@
+# 配置tomcat端口号
+server:
+  port: 9006
+# 配置注册中心中当前应用名称，名称不要有下划线_
+spring:
+  application:
+    name: ts-spit
+  data:
+    mongodb:
+      host: 192.168.195.136
+      port: 27017
+      database: spitdb
+  redis:
+    host: 192.168.195.135
+    port: 6379

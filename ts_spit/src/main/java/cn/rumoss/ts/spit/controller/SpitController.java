@@ -7,6 +7,7 @@ import cn.rumoss.ts.spit.pojo.Spit;
 import cn.rumoss.ts.spit.service.SpitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -89,6 +90,9 @@ public class SpitController {
         return new Result(true, StatusCode.OK, "查询成功", pageResult);
     }
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     /**
      * 吐槽点赞
      * @param id
@@ -96,8 +100,40 @@ public class SpitController {
      */
     @RequestMapping(value = "/thumbup/{id}", method = RequestMethod.PUT)
     public Result updateThumbup(@PathVariable String id){
+        // 判断用户是否点过赞
+        String userid = "001";
+        //1. 从redis 查询该用户是否已经点赞过
+        String flag = (String) redisTemplate.opsForValue().get("thumbup_"+userid+"_"+id);
+        if (null != flag ){
+            //点赞过
+            return new Result(false,StatusCode.REPERROR,"已经点赞过");
+        }
         spitService.updateThumbup(id);
+        //2.把数据存入redis
+        redisTemplate.opsForValue().set("thumbup_"+userid+"_"+id,"1");
         return new Result(true, StatusCode.OK, "点赞成功");
+    }
+
+    /**
+     * 浏览量
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/visited/{id}",method = RequestMethod.PUT)
+    public Result visit(@PathVariable String id){
+        spitService.visit(id);
+        return new Result(true,StatusCode.OK,"访问成功");
+    }
+
+    /**
+     * 转发分享
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/shared/{id}",method = RequestMethod.PUT)
+    public Result share(@PathVariable String id){
+        spitService.share(id);
+        return new Result(true,StatusCode.OK,"分享成功");
     }
 
 }
