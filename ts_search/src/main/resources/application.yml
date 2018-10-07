@@ -7,7 +7,7 @@ spring:
     name: ts-search
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9300
+      cluster-nodes: 192.168.195.136:9300
 #  redis:
 #    host: 192.168.195.135
 #    port: 6379
