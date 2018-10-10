@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
+
 /**
  * 实体类
  * @author Administrator
@@ -23,10 +25,10 @@ public class Gathering implements Serializable{
 	private String detail;//详细说明
 	private String sponsor;//主办方
 	private String image;//活动图片
-	private java.util.Date starttime;//开始时间
-	private java.util.Date endtime;//截止时间
+	private Date starttime;//开始时间
+	private Date endtime;//截止时间
 	private String address;//举办地点
-	private java.util.Date enrolltime;//报名截止
+	private Date enrolltime;//报名截止
 	private String state;//是否可见
 	private String city;//城市
 
