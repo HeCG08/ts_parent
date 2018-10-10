@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ts_article" />
+        <module name="ts_base" />
+        <module name="ts_common" />
+        <module name="ts_gathering" />
+        <module name="ts_qa" />
+        <module name="ts_recruit" />
+        <module name="ts_search" />
+        <module name="ts_sms" />
+        <module name="ts_spit" />
+        <module name="ts_user" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+server: 
+  port: 9009
+spring: 
+  application:  
+    name: ts-sms #指定服务名
+  rabbitmq:
+    host: 192.168.195.135
+aliyun:
+  sms:
+    tempCode: SMS_147436230
+    signName: 濡沫杂记
+    accessKeyId: LTAIuW4UfRZO3A1c
+    accessKeySecret: 1I7cvLR6mRpZ4MW8nAFSFxYpoJLwqd
+#    tempCode: SMS_100735040
+#    signName: 物流系统
+#    accessKeyId: LTAI0DByuBGlQzS9
+#    accessKeySecret: OygoBAVQRuCt4vf97Nfwav2NN8gcr2

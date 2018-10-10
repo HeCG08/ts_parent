@@ -16,6 +16,8 @@
         <module>ts_gathering</module>
         <module>ts_spit</module>
         <module>ts_search</module>
+        <module>ts_user</module>
+        <module>ts_sms</module>
     </modules>
     <packaging>pom</packaging>
 
