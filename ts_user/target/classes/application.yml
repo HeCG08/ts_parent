@@ -16,3 +16,8 @@ spring:
   redis:
     host: 192.168.195.135
     port: 6379
+# JWT
+jwt:
+  config:
+    key: rumoss
+    ttl: 360000

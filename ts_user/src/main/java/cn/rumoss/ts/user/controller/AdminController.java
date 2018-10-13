@@ -4,10 +4,12 @@ import cn.rumoss.ts.entity.Result;
 import cn.rumoss.ts.entity.StatusCode;
 import cn.rumoss.ts.user.pojo.Admin;
 import cn.rumoss.ts.user.service.AdminService;
+import cn.rumoss.ts.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 /**
  * 控制器层
@@ -97,6 +99,9 @@ public class AdminController {
 		return new Result(true,StatusCode.OK,"删除成功");
 	}
 
+	@Autowired
+	private JwtUtil jwtUtil;
+
 	/**
 	 * 用户登陆
 	 * @param loginMap
@@ -106,7 +111,13 @@ public class AdminController {
 	public Result login(@RequestBody Map<String,String> loginMap ){
 		Admin admin = adminService.findByLoginnameAndPassword(loginMap.get("loginname"),loginMap.get("password"));
 		if (null!=admin){
-			return new Result(true,StatusCode.OK,"登陆成功");
+		    // 生成Token
+            String token = jwtUtil.createJWT(admin.getId(),admin.getLoginname(),"admin");
+            Map map = new HashMap();
+            map.put("token",token);
+            map.put("name",admin.getLoginname());// 登陆名
+			//return new Result(true,StatusCode.OK,"登陆成功");
+            return new Result(true,StatusCode.OK,"登陆成功",map);
 		}
 		return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误");
 	}

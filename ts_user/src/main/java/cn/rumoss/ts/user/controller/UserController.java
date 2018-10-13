@@ -8,11 +8,15 @@ import cn.rumoss.ts.entity.Result;
 import cn.rumoss.ts.entity.StatusCode;
 import cn.rumoss.ts.user.pojo.User;
 import cn.rumoss.ts.user.service.UserService;
+import cn.rumoss.ts.util.JwtUtil;
+import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 控制器层
@@ -101,6 +105,11 @@ public class UserController {
         return new Result(true, StatusCode.OK, "修改成功");
     }
 
+    @Autowired
+    private HttpServletRequest request;
+    @Autowired
+    private JwtUtil jwtUtil;
+
     /**
      * 删除
      *
@@ -108,6 +117,24 @@ public class UserController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public Result delete(@PathVariable String id) {
+        // 获取头信息
+        String authHeader = request.getHeader("Authorization");
+        if(null==authHeader){
+            return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+        }
+        // 前后端约定：前端请求微服务时需要添加头信息Authorization ,内容为Bearer+空格 +Token
+        if (!authHeader.startsWith("Bearer ")){
+            return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+        }
+        String token = authHeader.substring(7);// 提取Token
+        Claims claims = jwtUtil.parseJWT(token);
+        if (null==claims){
+            return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+        }
+        if (!"admin".equals(claims.get("roles"))){// 不是admin角色
+            return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+        }
+
         userService.deleteById(id);
         return new Result(true, StatusCode.OK, "删除成功");
     }
