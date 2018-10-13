@@ -2,6 +2,7 @@ package cn.rumoss.ts.qa.controller;
 import java.util.List;
 import java.util.Map;
 
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +18,9 @@ import cn.rumoss.ts.qa.service.ProblemService;
 import cn.rumoss.ts.entity.PageResult;
 import cn.rumoss.ts.entity.Result;
 import cn.rumoss.ts.entity.StatusCode;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 控制器层
  * @author Administrator
@@ -73,13 +77,21 @@ public class ProblemController {
     public Result findSearch( @RequestBody Map searchMap){
         return new Result(true,StatusCode.OK,"查询成功",problemService.findSearch(searchMap));
     }
-	
+
+    @Autowired
+    private HttpServletRequest request;
+
 	/**
-	 * 增加
+	 * 发布问题
 	 * @param problem
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Problem problem  ){
+		Claims claims = (Claims) request.getAttribute("user_claims");
+		if(null==claims){
+			return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+		}
+		problem.setUserid(claims.getId());// 设置用户ID
 		problemService.add(problem);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}

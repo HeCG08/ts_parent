@@ -13,3 +13,7 @@ spring:
   jpa:
     show-sql: true
     database: mysql
+# JWT
+jwt:
+  config:
+    key: rumoss

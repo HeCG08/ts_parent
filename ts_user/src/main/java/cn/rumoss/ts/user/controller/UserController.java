@@ -1,5 +1,6 @@
 package cn.rumoss.ts.user.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -151,15 +152,23 @@ public class UserController {
 
     /**
      * 用户登陆
-     * @param mobile
-     * @param password
+     * @param loginMap
      * @return
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Result login(@RequestParam String mobile, @RequestParam String password){
+    public Result login(@RequestBody Map<String,String> loginMap){
+    //public Result login(@RequestParam String mobile, @RequestParam String password){
+        String mobile = loginMap.get("mobile");
+        String password = loginMap.get("password");
         User user = userService.findByMobileAndPassword(mobile,password);
         if (null!=user){
-            return new Result(true,StatusCode.OK,"登陆成功");
+            String token = jwtUtil.createJWT(user.getId(),user.getNickname(),"user");// 创建token
+            Map map = new HashMap();
+            map.put("token",token);
+            map.put("name",user.getNickname());// 昵称
+            map.put("avatar",user.getAvatar());// 头像
+            //return new Result(true,StatusCode.OK,"登陆成功");
+            return new Result(true,StatusCode.OK,"登陆成功",map);
         }
         return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误");
     }
