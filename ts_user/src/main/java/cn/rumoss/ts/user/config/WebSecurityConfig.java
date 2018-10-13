@@ -6,7 +6,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * 安全配置类
+ * 安全配置类:添加一个配置类，配置为所有地址
+ * 都可以匿名访问
  */
 @Configuration
 @EnableWebSecurity
