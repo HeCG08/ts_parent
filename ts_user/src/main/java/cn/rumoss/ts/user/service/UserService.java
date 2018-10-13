@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -102,6 +103,9 @@ public class UserService {
         return userDao.findById(id).get();
     }
 
+    @Autowired
+    BCryptPasswordEncoder encoder;
+
     /**
      * 增加
      *
@@ -125,6 +129,9 @@ public class UserService {
                 user.setAvatar("");
                 user.setEmail("");
                 user.setNickname("");
+                // 密码加密
+                String newPassWd = encoder.encode(user.getPassword());// 加密后的密码
+                user.setPassword(newPassWd);
                 userDao.save(user);
             }else{
                 throw new RuntimeException("验证码不正确");
@@ -229,4 +236,19 @@ public class UserService {
         rabbitTemplate.convertAndSend("sms",map);
 
     }
+
+    /**
+     * 根据手机号和密码查询用户
+     * @param mobile
+     * @param password
+     * @return
+     */
+    public User findByMobileAndPassword(String mobile,String password) {
+        User user = userDao.findByMobile(mobile);
+        if(null!=user  && encoder.matches(password,user.getPassword())){
+            return user;
+        }
+        return null;
+    }
+
 }

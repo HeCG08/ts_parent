@@ -12,12 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 控制器层
@@ -140,4 +135,20 @@ public class UserController {
         userService.add(code,user);
         return new Result(true,StatusCode.OK,"注册成功");
     }
+
+    /**
+     * 用户登陆
+     * @param mobile
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public Result login(@RequestParam String mobile, @RequestParam String password){
+        User user = userService.findByMobileAndPassword(mobile,password);
+        if (null!=user){
+            return new Result(true,StatusCode.OK,"登陆成功");
+        }
+        return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误");
+    }
+
 }
