@@ -20,6 +20,8 @@
         <module>ts_sms</module>
         <module>ts_eureka</module>
         <module>ts_friend</module>
+        <module>ts_manager</module>
+        <module>ts_web</module>
     </modules>
     <packaging>pom</packaging>
 

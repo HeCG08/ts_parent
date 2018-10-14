@@ -1,0 +1,24 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: ts-manager
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka  #指定Eureka注册地址
+zuul:
+  routes:
+    ts-base:
+      path: /label/**   #拦截路径
+      serviceId: ts-base  #微服务的名称
+    ts-qa: #问答
+      path: /qa/** #配置请求URL的请求规则
+      serviceId: ts-qa #指定Eureka注册中心中的服务id
+    ts-user:
+      path: /user/**
+      serviceId: ts-user
+jwt:
+  config:
+    key: rumoss
+    ttl: 3600000
