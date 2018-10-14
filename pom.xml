@@ -18,6 +18,7 @@
         <module>ts_search</module>
         <module>ts_user</module>
         <module>ts_sms</module>
+        <module>ts_eureka</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -89,5 +90,17 @@
                 </snapshots>
             </pluginRepository>
         </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     </project>

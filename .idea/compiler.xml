@@ -9,6 +9,7 @@
         <module name="ts_article" />
         <module name="ts_base" />
         <module name="ts_common" />
+        <module name="ts_eureka" />
         <module name="ts_gathering" />
         <module name="ts_qa" />
         <module name="ts_recruit" />
