@@ -22,3 +22,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:6868/eureka   #指定Eureka注册地址
+# Hystrix
+feign:  #开启hystrix熔断器
+  hystrix:
+    enabled: true
