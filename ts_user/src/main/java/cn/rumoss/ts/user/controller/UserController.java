@@ -173,4 +173,22 @@ public class UserController {
         return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误");
     }
 
+    /**
+     * 更新关注数
+     */
+    @RequestMapping(value ="/updateFollowcount/{userid}/{x}" ,method =RequestMethod.PUT )
+    public Result updateFollowcount(@PathVariable String userid,@PathVariable int x){
+        userService.updateFollowcount(userid,x);
+        return new Result(true,StatusCode.OK,"更新关注数成功");
+    }
+
+    /**
+     * 更新粉丝数
+     */
+    @RequestMapping(value ="/updateFanscount/{userid}/{x}" ,method =RequestMethod.PUT )
+    public Result updateFanscount(@PathVariable String userid,@PathVariable int x){
+        userService.updateFanscount(userid,x);
+        return new Result(true,StatusCode.OK,"更新粉丝数成功");
+    }
+
 }

@@ -19,6 +19,7 @@
         <module>ts_user</module>
         <module>ts_sms</module>
         <module>ts_eureka</module>
+        <module>ts_friend</module>
     </modules>
     <packaging>pom</packaging>
 

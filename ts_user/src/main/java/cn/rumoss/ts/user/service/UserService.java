@@ -13,6 +13,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -249,6 +250,26 @@ public class UserService {
             return user;
         }
         return null;
+    }
+
+    /**
+     * 更新关注数
+     * @param userid
+     * @param x
+     */
+    @Transactional
+    public void updateFollowcount(String userid, int x) {
+        userDao.updateFollowcount(userid,x);
+    }
+
+    /**
+     * 更新粉丝数
+     * @param userid
+     * @param x
+     */
+    @Transactional
+    public void updateFanscount(String userid, int x) {
+        userDao.updateFanscount(userid,x);
     }
 
 }
