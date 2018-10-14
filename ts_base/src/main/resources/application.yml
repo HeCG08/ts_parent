@@ -13,3 +13,8 @@ spring:
   jpa:
     show-sql: true
     database: mysql
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka   #指定Eureka注册地址

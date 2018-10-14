@@ -2,6 +2,7 @@ package cn.rumoss.ts.qa.controller;
 import java.util.List;
 import java.util.Map;
 
+import cn.rumoss.ts.qa.client.LabelClient;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -160,6 +161,16 @@ public class ProblemController {
 		Page<Problem> pageList = problemService.findHotListByLabelId(label, page, size);
 		PageResult pageResult = new PageResult(pageList.getTotalElements(), pageList.getContent());
 		return new Result(true, StatusCode.OK, "查询成功", pageResult);
+	}
+
+	//注入LabelClient
+	@Autowired
+	private LabelClient labelClient;
+
+	@RequestMapping(value = "/label/{labelid}")
+	public Result findLabelById(@PathVariable String labelid) {
+		Result result = labelClient.findById(labelid);
+		return result;
 	}
 	
 }
