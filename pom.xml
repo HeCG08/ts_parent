@@ -22,6 +22,7 @@
         <module>ts_friend</module>
         <module>ts_manager</module>
         <module>ts_web</module>
+        <module>ts_config</module>
     </modules>
     <packaging>pom</packaging>
 
