@@ -8,8 +8,8 @@ spring:  #连接远程Git仓库地址
       server:
         git:
           uri: https://gitee.com/tangijia/ts-config.git
-          username: 2656259928@qq.com
-          password: 密码不告诉你
+#          username: 2656259928@qq.com
+#          password: 密码不告诉你
 #  rabbitmq:
 #    host: 192.168.66.133
 #management:  #暴露触发消息总线的地址
