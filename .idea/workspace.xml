@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1d7d48a-4da9-4003-9929-c9ee4c2675ec" name="Default Changelist" comment="" />
+    <list default="true" id="c1d7d48a-4da9-4003-9929-c9ee4c2675ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts_eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ts_eureka/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/ts_common/target/" />
@@ -29,7 +32,7 @@
     <session id="1813582872">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -45,14 +48,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="4673" />
-          <entry key="xml" value="410" />
+          <entry key="xml" value="412" />
           <entry key="yml" value="430" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4673" />
-          <entry key="XML" value="410" />
+          <entry key="XML" value="412" />
           <entry key="YAML" value="430" />
         </counts>
       </usages-collector>
@@ -62,7 +65,7 @@
           <entry key="iml" value="1" />
           <entry key="java" value="247" />
           <entry key="pom" value="3" />
-          <entry key="xml" value="67" />
+          <entry key="xml" value="68" />
           <entry key="yml" value="63" />
         </counts>
       </usages-collector>
@@ -71,7 +74,7 @@
           <entry key="CLASS" value="2" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="247" />
-          <entry key="XML" value="70" />
+          <entry key="XML" value="71" />
           <entry key="YAML" value="63" />
         </counts>
       </usages-collector>
@@ -80,15 +83,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ts_base/src/main/java/cn/rumoss/ts/base/controller/TestController.java">
+        <entry file="file://$PROJECT_DIR$/ts_eureka/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#292#293#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-197">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="59" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -130,7 +128,6 @@
         <option value="$PROJECT_DIR$/ts_user/pom.xml" />
         <option value="$PROJECT_DIR$/ts_eureka/src/main/java/cn/rumoss/ts/eureka/EurekaServer.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/ts_eureka/pom.xml" />
         <option value="$PROJECT_DIR$/ts_eureka/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/ts_eureka/src/main/java/cn/rumoss/ts/eureka/EurekaApplication.java" />
         <option value="$PROJECT_DIR$/ts_qa/pom.xml" />
@@ -172,6 +169,7 @@
         <option value="$PROJECT_DIR$/ts_config/pom.xml" />
         <option value="$PROJECT_DIR$/ts_config/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/ts_base/src/main/java/cn/rumoss/ts/base/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/ts_eureka/pom.xml" />
       </list>
     </option>
   </component>
@@ -235,47 +233,7 @@
             <path>
               <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ts_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ts_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="ts_base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="ts_eureka" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -295,7 +253,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539500344287" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539511918961" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -450,12 +408,12 @@
       <workItem from="1539442106477" duration="1065000" />
       <workItem from="1539443465649" duration="654000" />
       <workItem from="1539444268485" duration="1220000" />
-      <workItem from="1539476491825" duration="18687000" />
+      <workItem from="1539476491825" duration="20478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95065000" />
+    <option name="totallyTimeSpent" value="96856000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -468,7 +426,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1314" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -476,7 +433,7 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" sideWeight="0.5023148" side_tool="true" weight="0.22886762" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4976852" visible="true" weight="0.17464115" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4976852" visible="true" weight="0.17464115" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3297546" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32924962" />
@@ -487,7 +444,7 @@
       <window_info anchor="bottom" id="Spring" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.25920245" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.25920245" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.48006135" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
@@ -729,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts_eureka/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ts_web/src/main/java/cn/rumoss/ts/web/filter/WebFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -921,13 +871,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ts_base/src/main/java/cn/rumoss/ts/base/controller/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="340">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#292#293#0" expanded="true" />
             <element signature="e#320#321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts_eureka/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-197">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="59" selection-end-column="12" />
         </state>
       </provider>
     </entry>
